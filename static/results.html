@@ -1,0 +1,87 @@
+<!---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Results</title>
+    <link rel = "stylesheet" type = "text/css" href = "./static/style.css">
+</head>
+<body>
+    <div class = "container">
+        <h1> All Results</h1>
+        <form method = 'post' action = '/websearch'>
+            <input type = 'text' placeholder="Search for..." value = {{query}} name="query">
+            <button type='submit'></button>
+        </form>
+        {% if urls %}
+        {%for url in urls %}
+        <div class = "results">
+            <div class = 'result'>
+                <h3> {{url[1]}} </h3>
+                <a href = "{{url[0]}}"> {{url[0]}}</a>
+            </div>
+        </div>
+        {%endfor%}
+    </div>
+    {% else %}
+    <h1>No results Found</h1>
+    {%endif%}
+</body>
+</html>
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Results</title>
+    <link rel="stylesheet" type="text/css" href="./static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>All Results</h1>
+
+        <form method="post" action="/websearch">
+            <input type="text" placeholder="Search for..." value={{query}} name="query">
+            <button type="submit">Search</button>
+        </form>
+
+        {% if urls %}
+            {% for url in urls %}
+            <div class="results">
+                <div class="result">
+
+                    <!-- Favicon + domain -->
+                    <div class="result-source">
+                        <img
+                            class="favicon"
+                            src="https://www.google.com/s2/favicons?sz=32&domain_url={{url[0]}}"
+                            alt=""
+                            onerror="this.style.display='none';"
+                        >
+                        <span class="result-domain">{{url[0]}}</span>
+                    </div>
+
+                    <!-- Clickable title -->
+                    <a class="result-title" href="{{url[0]}}">{{url[1]}}</a>
+
+                    <!-- URL in green -->
+                    <div class="result-url">{{url[0]}}</div>
+
+                    <!-- Snippet (shown if your backend provides url[2]) -->
+                    {% if url|length > 2 and url[2] %}
+                    <p class="result-snippet">{{url[2]}}</p>
+                    {% endif %}
+
+                </div>
+            </div>
+            {% endfor %}
+
+        {% else %}
+            <h1>No results found</h1>
+        {% endif %}
+    </div>
+</body>
+</html>
