@@ -23,8 +23,15 @@ def search():#get the query from the requests
         cursor = conn.cursor()
 
         #search for websites that match query in their cleaned content
-        cursor.execute("SELECT url, title FROM pages WHERE cleaned_content\
-                       LIKE ? ORDER by pagerank DESC", ('%' + query + '%',))
+        # cursor.execute("SELECT url, title FROM pages WHERE cleaned_content\
+        #                LIKE ? ORDER by pagerank DESC", ('%' + query + '%',))
+        cursor.execute("""
+            SELECT p.url, p.title 
+            FROM pages p
+            JOIN pages_fts f ON p.rowid = f.rowid
+            WHERE pages_fts MATCH ?
+            ORDER BY p.pagerank DESC
+        """, (query,))
         urls = cursor.fetchall()
 
         conn.close()
