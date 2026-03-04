@@ -19,7 +19,7 @@ def search():#get the query from the requests
         if query == "":
             return render_template("websearch.html")
         #connect to the db
-        conn = sqlite3.connect('crawled_pages.db')
+        conn = sqlite3.connect('/data/crawled_pages.db')
         cursor = conn.cursor()
 
         #search for websites that match query in their cleaned content
