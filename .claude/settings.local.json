@@ -1,0 +1,39 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -c ' *)",
+      "Bash(python3 -c \"import playwright\")",
+      "Read(//Applications/Google Chrome.app/**)",
+      "Bash(python3 -c \"import flask\")",
+      "Bash(python3 -c \"import sklearn\")",
+      "Bash(python3 knightsearch.py)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://127.0.0.1:5000/)",
+      "Bash(disown)",
+      "Bash(curl -s -o /dev/null -w \"home: %{http_code}\\\\n\" http://127.0.0.1:5000/)",
+      "Bash(curl -s -o /dev/null -w \"search: %{http_code}\\\\n\" -X POST -d \"query=graphic design\" http://127.0.0.1:5000/websearch)",
+      "Bash('/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' --headless --disable-gpu --screenshot=/private/tmp/claude-501/-Users-alvin-Desktop-knightsearch/e96c0142-3e4e-4bf6-b068-de5692347adc/scratchpad/home.png --window-size=1280,1600 http://127.0.0.1:5000/)",
+      "Bash('/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' --headless --disable-gpu --screenshot=/private/tmp/claude-501/-Users-alvin-Desktop-knightsearch/e96c0142-3e4e-4bf6-b068-de5692347adc/scratchpad/results.png --window-size=1280,1600 --virtual-time-budget=3000 file:///private/tmp/claude-501/-Users-alvin-Desktop-knightsearch/e96c0142-3e4e-4bf6-b068-de5692347adc/scratchpad/autosubmit.html)",
+      "Bash(pkill -f \"python3 knightsearch.py\")",
+      "Bash(lsof -i :5000 -sTCP:LISTEN -P)",
+      "Bash(ps -p 8550 -o pid,ppid,command)",
+      "Bash(ps -p 8721 -o pid,ppid,command)",
+      "Bash(curl -s http://127.0.0.1:5000/)",
+      "Bash(python3 -)",
+      "Bash(pkill -f \"knightsearch.py\")",
+      "Bash(curl -s -X POST -d \"query=graphic design\" http://127.0.0.1:5000/websearch -o /tmp/gd.html -w \"search: %{http_code} time: %{time_total}s\\\\n\")",
+      "Read(//tmp/**)",
+      "Bash(curl -sv http://127.0.0.1:5050/)",
+      "Bash(curl -s -X POST -d query=programs http://127.0.0.1:5050/websearch -o /private/tmp/claude-501/-Users-alvin-Desktop-knightsearch/e96c0142-3e4e-4bf6-b068-de5692347adc/scratchpad/programs.html -w 'programs: %{http_code} %{time_total}s\\\\n')",
+      "Bash(curl -s -X POST -d query=campus http://127.0.0.1:5050/websearch -o /private/tmp/claude-501/-Users-alvin-Desktop-knightsearch/e96c0142-3e4e-4bf6-b068-de5692347adc/scratchpad/campus.html -w 'campus: %{http_code} %{time_total}s\\\\n')",
+      "Bash('/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' --headless --disable-gpu --screenshot=/private/tmp/claude-501/-Users-alvin-Desktop-knightsearch/e96c0142-3e4e-4bf6-b068-de5692347adc/scratchpad/home2.png --window-size=1280,1200 http://127.0.0.1:5050/)",
+      "Bash(curl -s -o /dev/null -w \"home: %{http_code}\\\\n\" http://127.0.0.1:5050/)",
+      "Bash(curl -s -X POST -d \"query=graphic design\" http://127.0.0.1:5050/websearch)",
+      "Bash(curl -s -X POST -d 'query=graphic design' http://127.0.0.1:5050/websearch -w '\\\\ntime: %{time_total}s\\\\n' -o /private/tmp/claude-501/-Users-alvin-Desktop-knightsearch/e96c0142-3e4e-4bf6-b068-de5692347adc/scratchpad/gd2.html)",
+      "Bash('/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' --headless --disable-gpu --screenshot=/private/tmp/claude-501/-Users-alvin-Desktop-knightsearch/e96c0142-3e4e-4bf6-b068-de5692347adc/scratchpad/results3.png --window-size=1280,1300 --virtual-time-budget=3000 file:///private/tmp/claude-501/-Users-alvin-Desktop-knightsearch/e96c0142-3e4e-4bf6-b068-de5692347adc/scratchpad/autosubmit3.html)",
+      "Bash(rm -f /private/tmp/claude-501/-Users-alvin-Desktop-knightsearch/e96c0142-3e4e-4bf6-b068-de5692347adc/scratchpad/autosubmit*.html *)"
+    ],
+    "additionalDirectories": [
+      "/private/tmp/claude-501/-Users-alvin-Desktop-knightsearch/e96c0142-3e4e-4bf6-b068-de5692347adc/scratchpad"
+    ]
+  }
+}
